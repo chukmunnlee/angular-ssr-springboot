@@ -8,6 +8,8 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <script>
     window.INIT_VALUE = JSON.parse('{ "message": "init value not set" }')
+    // Uncomment this for SSR
+    // window.INIT_VALUE = JSON.parse('[(${message})]')
     window.INIT_VALUE.timestamp = (new Date()).toString()
   </script>
 </head>

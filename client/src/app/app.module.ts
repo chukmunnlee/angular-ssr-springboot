@@ -3,7 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 
-export const INIT_VALUE = new InjectionToken<any>('INIT_VALUE')
+export type ServerPayload = {
+  [ key: string ]: any
+}
+export const INIT_VALUE = new InjectionToken<ServerPayload>('INIT_VALUE')
 
 @NgModule({
   declarations: [

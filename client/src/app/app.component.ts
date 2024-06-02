@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, inject } from '@angular/core';
+import { Component, OnInit, Optional, inject } from '@angular/core';
 import {INIT_VALUE} from './app.module';
 
 @Component({
@@ -8,14 +8,13 @@ import {INIT_VALUE} from './app.module';
 })
 export class AppComponent implements OnInit {
 
-  initValue = inject(INIT_VALUE)
+  initValue = inject(INIT_VALUE, { optional: true })
 
   message = "not set"
 
-  //constructor(@Inject(INIT_VALUE) private initValue: any) { }
-
   ngOnInit(): void {
     console.info('>>> initValue: ', this.initValue)
-    this.message = this.initValue.message
+    if (!!this.initValue)
+      this.message = this.initValue['message']
   }
 }
